@@ -1,0 +1,18 @@
+server:
+  port: 9093
+  
+  
+spring:  rabbitmq:    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  cloud:    stream:      bindings:        iotmessageChannel.destination: iotmessages
+        
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.asiczen: TRACE
+  file:
+    name: /home/lora/webApplications/app-logs/mqtt-subscriber.log
+    max-size: 10 MB        

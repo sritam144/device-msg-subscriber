@@ -28,13 +28,4 @@ public class TestController {
 		return new ResponseEntity<>("message published successfully", HttpStatus.CREATED);
 	}
 
-//	@PostMapping("/messagetest")
-//	public ResponseEntity<?> publishTestMessage(@RequestBody OriginalMessage message) {
-//
-//		for (int i = 0; i < 10000; i++) {
-//			iotMessageSource.iotMessageSource().send(MessageBuilder.withPayload(message).build());
-//		}
-//
-//		return new ResponseEntity<>("message published successfully", HttpStatus.CREATED);
-//	}
 }

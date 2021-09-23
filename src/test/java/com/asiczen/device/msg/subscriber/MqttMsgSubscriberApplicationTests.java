@@ -1,4 +1,4 @@
-package com.asiczen.mqtt.msg.subscriber;
+package com.asiczen.device.msg.subscriber;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 

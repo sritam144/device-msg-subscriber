@@ -1,30 +1,31 @@
-package com.asiczen.mqtt.msg.subscriber.controller;
+package com.asiczen.device.msg.subscriber.controller;
 
+import com.asiczen.device.msg.subscriber.dto.WMeterOriginalMessage;
+import com.asiczen.device.msg.subscriber.services.PublishToQueue;
+import com.asiczen.device.msg.subscriber.services.WMServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.integration.support.MessageBuilder;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.asiczen.mqtt.msg.subscriber.model.OriginalMessage;
-import com.asiczen.mqtt.msg.subscriber.source.IOTMessageSource;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/device")
 @Slf4j
-public class TestController {
+public class WMeterController {
 
 	@Autowired
-	IOTMessageSource iotMessageSource;
+	PublishToQueue publishToQueue;
 
-	@PostMapping("/message")
-	public ResponseEntity<?> publishMessage(@RequestBody OriginalMessage message) {
-		iotMessageSource.iotMessageSource().send(MessageBuilder.withPayload(message).build());
+	@PostMapping("/watermeter")
+	public ResponseEntity<?> publishMessage(@RequestBody WMeterOriginalMessage message) {
+		publishToQueue.publishMessages(message);
 		return new ResponseEntity<>("message published successfully", HttpStatus.CREATED);
 	}
 

@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.asiczen.mqttmsg.subscriber</groupId>
-	<artifactId>mqtt-msg-subscriber</artifactId>
+	<artifactId>device-msg-subscriber</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mqtt-msg-subscriber</name>
+	<name>device-msg-subscriber</name>
 	<description>subscribe message from MQTT and post to Rabbit MQ</description>
 
 	<properties>
@@ -31,11 +31,11 @@
 		</dependency>
 		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-stream</artifactId> 
 			</dependency> -->
-
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -1,13 +1,19 @@
 server:
-  port: 9093
+  port: 9090
   
   
-spring:  rabbitmq:    host: localhost
+spring:
+  rabbitmq:
+    host: localhost
     port: 5672
     username: guest
     password: guest
 
-  cloud:    stream:      bindings:        iotmessageChannel.destination: iotmessages
+
+  cloud:
+    stream:
+      bindings:
+        iotmessageChannel.destination: deviceMessages
         
 logging:
   level:
